@@ -1,3 +1,8 @@
+/* Simple Application to demonstrate responsiveness in flutter as a test for the internship by aim labs.
+   Author : Mohammed Shadirvan Mc
+
+ */
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,6 +11,10 @@ void main() {
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
+
+  final Color redCardColor = const Color(0xffD18585);
+  final Color responsiveGreenColor = const Color(0xffA8D8AD);
+  final Color constantGreyColor = const Color(0xffC4C4C4);
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +33,26 @@ class MainApp extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 height: 100,
                 width: double.infinity, // uses width as same as screen width
-                color: Colors.red,
+                decoration: BoxDecoration(
+                  boxShadow: const [
+                    BoxShadow(
+                        blurRadius: 2,
+                        offset: Offset(5, 5),
+                        color: Colors.black26),
+                  ],
+                  color: redCardColor,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment
                       .start, // uses to align the containers to the left of the screen
+                  mainAxisAlignment: MainAxisAlignment.center,
+
                   children: [
                     // The grey container with fixed width with no responsivness
                     Container(
                       height: 25,
-                      width: 200,
-                      color: Colors.grey,
+                      width: 230,
+                      color: constantGreyColor,
                     ),
 
                     const SizedBox(
@@ -44,43 +63,62 @@ class MainApp extends StatelessWidget {
                     Container(
                       height: 30,
                       width: double.infinity,
-                      color: Colors.green,
+                      color: responsiveGreenColor,
                     ),
                   ],
                 ),
               ),
               const SizedBox(
-                height: 100,
+                height: 50,
               ),
               // -------------------Card 2 --------------------
+
+              // used stack here to put the container on top of the card
               Stack(
                 alignment: Alignment.topCenter,
-                children: [ Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                  margin:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  height: 100,
-                  width: double.infinity,
-                  color: Colors.red,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        height: 30,
-                        width: double.infinity,
-                        color: Colors.green,
-                      ),
-                    ],
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 15),
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 30, horizontal: 10),
+                    height: 100,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      boxShadow: const [
+                        BoxShadow(
+                            blurRadius: 2,
+                            offset: Offset(5, 5),
+                            color: Colors.black26),
+                      ],
+                      color: redCardColor,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+
+                        // Resposive green container
+                        Container(
+                          height: 30,
+                          width: double.infinity,
+                          color: responsiveGreenColor,
+                        ),
+                      ],
+                    ),
                   ),
-                ), Container(
-                      height: 30,
-                      width: 200,
-                      color: Colors.grey,
-                    )]
+                  // grey container in the middle
+                  Container(
+                    height: 50,
+                    width: 200,
+                    color: constantGreyColor,
+                  ),
+                ],
               ),
             ],
           ),
