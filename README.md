@@ -1,4 +1,4 @@
-# shadirvan_responsive_app
+# Aimlabs Intership Test
 
 A simple flutter app which demostrate responsivness in flutter.
 
