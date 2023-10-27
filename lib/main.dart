@@ -11,6 +11,7 @@ void main() {
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
+// Common colors used in the code
 
   final Color redCardColor = const Color(0xffD18585);
   final Color responsiveGreenColor = const Color(0xffA8D8AD);
